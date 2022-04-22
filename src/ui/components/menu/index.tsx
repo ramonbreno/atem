@@ -38,7 +38,7 @@ function MenuComponent() {
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
               <MenuItem > Log in </MenuItem>
-              <Button variant="contained" color='secondary' sx={{ background: '#3C67F7', boxShadow: 0, borderRadius: '8px', textTransform: 'capitalize' }}>Sign up</Button>
+              <Button variant="contained" color='secondary' sx={{ background: '#3C67F7', boxShadow: 0, borderRadius: '8px', textTransform: 'capitalize', marginLeft: '25px' }}>Sign up</Button>
 
               <Search sx={{ background: '#EFF2F5', borderRadius: '8px', }}>
                 <SearchIconWrapper>
@@ -56,14 +56,18 @@ function MenuComponent() {
                   options={['teste', 'teste', 'teste']}
                   sx={{ width: 175, height: 'auto' }}
                   renderInput={(params) => (
-                    <TextField
+                    <StyledInputBase
+                      placeholder="Buscar"
+                      inputProps={{ 'aria-label': 'search' }}
+                    />
+                    /* <TextField
                       {...params}
                       label="Buscar"
                       InputProps={{
                         ...params.InputProps,
                         type: 'search',
                       }}
-                    />
+                    /> */
                   )}
                 />
 

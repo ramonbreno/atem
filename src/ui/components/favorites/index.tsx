@@ -3,7 +3,6 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import StarIcon from '@mui/icons-material/Star';
 import Box from "@mui/material/Box";
 import List from '@mui/material/List';
-import Paper from '@mui/material/Paper';
 import { useNavigate } from 'react-router-dom';
 import { formatter } from '../../../utils/currency_formatter';
 import { useFavoritesContext } from './Context';
@@ -54,7 +53,10 @@ function FavoritesList() {
 
     return (
         <>
-            <FavoritesTitle>Favoritos</FavoritesTitle>
+            {
+                (favoritesContext?.length ?? 0) > 0 ? <FavoritesTitle>Favoritos</FavoritesTitle> : <></>
+            }
+
             <List sx={{ display: 'flex', flexDirection: 'row', padding: 0, maxHeight: '100%', overflow: 'auto', scrollbarWidth: 0 }}>
                 {favoritesContext?.sort(getComparator).map(item => <FavoritesItem
                     key={item.symbol}
